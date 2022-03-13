@@ -9,18 +9,26 @@ html {
 
 /* colors */
 .bg-darkest {
-  background-color: #1f2029;
+  background-color: #1f2029 !important;
 }
 
 .bg-darker {
   background-color: #2a2b37;
 }
 
+.bg-purple {
+  background-color: #1a0000;
+}
+
 /* text */
 .text-light-grey {
-  color: #c3c2c9;
+  color: #c3c2c9 !important;
 }
 
 .text-dark-grey {
-  color: #7c7c83;
+  color: #7c7c83 !important;
+}
+
+.text-dark-white {
+  color: #d9d9d9 !important;
 }

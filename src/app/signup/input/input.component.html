@@ -1,0 +1,42 @@
+<div class="form-group">
+  <label
+    class="text-light-grey py-2 text-sz-1 text-uppercase font-w-b text-spacing-1"
+    >{{ fieldName }}</label
+  >
+  <input
+    class="form-control bg-darkest text-light-grey"
+    [formControl]="$any(control)"
+    [type]="fieldType"
+  />
+</div>
+
+<!-- check if validation -->
+<ng-container *ngIf="control?.dirty && control?.touched && control?.errors">
+  <!-- required field -->
+  <div *ngIf="control?.getError('required')">
+    <span class="text-dark-white text-sz-1 py-1 d-block"
+      >*Field is required.</span
+    >
+  </div>
+
+  <!-- min length -->
+  <div *ngIf="control?.getError('minlength')">
+    <span class="text-dark-white text-sz-1 py-1 d-block"
+      >*Field has a minumum length of {{ fieldMin }} characters.
+    </span>
+  </div>
+
+  <!-- max length -->
+  <div *ngIf="control?.getError('maxlength')">
+    <span class="text-dark-white text-sz-1 py-1 d-block"
+      >*Field has a max length of {{ fieldMax }} characters.
+    </span>
+  </div>
+
+  <!-- email -->
+  <div *ngIf="control?.getError('email')">
+    <span class="text-dark-white text-sz-1 py-1 d-block"
+      >*Please provide a valid email
+    </span>
+  </div>
+</ng-container>

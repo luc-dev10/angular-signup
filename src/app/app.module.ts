@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupModule } from './signup/signup.module';
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent],
-  imports: [BrowserModule, ReactiveFormsModule],
+  declarations: [AppComponent],
+  imports: [BrowserModule, SignupModule],
   providers: [],
   bootstrap: [AppComponent],
 })

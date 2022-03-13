@@ -1,1 +1,50 @@
-<p>signup works!</p>
+<div class="container my-5">
+  <div class="d-sm-flex flex-column align-items-center">
+    <!-- start form -->
+    <form
+      class="rounded bg-darker px-4 py-4"
+      [formGroup]="cardForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- username -->
+      <app-input
+        [control]="$any(cardForm.get('userName'))"
+        [fieldName]="'username'"
+        [fieldType]="'text'"
+        [fieldMin]="4"
+        [fieldMax]="10"
+      ></app-input>
+
+      <!-- email -->
+      <app-input
+        [control]="$any(cardForm.get('email'))"
+        [fieldName]="'email'"
+        [fieldType]="'email'"
+      ></app-input>
+
+      <!-- password -->
+      <app-input
+        [control]="$any(cardForm.get('password'))"
+        [fieldName]="'password'"
+        [fieldType]="'password'"
+        [fieldMin]="8"
+        [fieldMax]="15"
+      ></app-input>
+
+      <button
+        type="submit"
+        class="bg-purple btn w-100 mt-4 mb-2 text-light-grey py-2 font-w-b"
+        [disabled]="cardForm.invalid"
+      >
+        Submit
+      </button>
+    </form>
+    <!-- end form -->
+  </div>
+
+  <div class="text-light-grey">form content: {{ cardForm.value | json }}</div>
+  <div class="text-light-grey">form is invalid: {{ cardForm.invalid }}</div>
+  <div class="text-light-grey">
+    errors username: {{ cardForm.get("userName")?.errors | json }}
+  </div>
+</div>
